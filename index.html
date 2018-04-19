@@ -10,8 +10,8 @@
 </head>
 <body>
     <div class="flex"> 
-        <button class="navTab" onclick="selectTab('vendorTracking')">Vendor tracking</button>
-        <button class="navTab" onclick="selectTab('cabAttendance')">Cab Attendance</button>
+        <button id="vendorTracking" class="selectedTab navTab" onclick="selectTab('vendorTracking')">Vendor tracking</button>
+        <button id="cabAttendance" class="navTab" onclick="selectTab('cabAttendance')">Cab Attendance</button>
     </div>
 	<div class="wrapper">
 		<iframe id="iframeDiv" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTMcZ7R7hohqTrp64vEQEEaOvbD3qZXDadTSpFYdAQbesbMWUXZMV85TW1PeNzWLB4M18z580A8H2iw/pubhtml"></iframe>
@@ -19,11 +19,18 @@
     <script>
         function selectTab(tabName){
             let iframeDiv = document.getElementById('iframeDiv');
+            let tab1 = document.getElementById("vendorTracking");
+            let tab2 = document.getElementById("cabAttendance");
             if(tabName === "vendorTracking"){
+                tab2.classList.remove('selectedTab');
+                tab1.classList.add('selectedTab');
+                document.getElementById("vendorTracking").classList.add('selectedTab');
                 iframeDiv.src = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTMcZ7R7hohqTrp64vEQEEaOvbD3qZXDadTSpFYdAQbesbMWUXZMV85TW1PeNzWLB4M18z580A8H2iw/pubhtml";
             }
             else if(tabName === "cabAttendance"){
-                let windowLocationSplittedParts = window.location.href.split('?');
+                tab1.classList.remove('selectedTab');
+                tab2.classList.add('selectedTab');
+                let windowLocationSplittedParts = window.location.href.split('##');
                 let vendorName = windowLocationSplittedParts[windowLocationSplittedParts.length-1];
                 alert(vendorName);
                 iframeDiv.src = "https://thd-staging.moveinsync.com/static/attendance/index.html?" + vendorName;

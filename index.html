@@ -9,8 +9,25 @@
     <link rel="shortcut icon" type="image/png" href="logo.png"/>
 </head>
 <body>
+    <div> 
+        <button onclick="selectTab('vendorTracking')">Vendor tracking</button>
+        <button onclick="selectTab('cabAttendance')">Cab Attendance</button>
+    </div>
 	<div class="wrapper">
-		<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTMcZ7R7hohqTrp64vEQEEaOvbD3qZXDadTSpFYdAQbesbMWUXZMV85TW1PeNzWLB4M18z580A8H2iw/pubhtml"></iframe>
-	</div>
+		<iframe id="iframeDiv" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTMcZ7R7hohqTrp64vEQEEaOvbD3qZXDadTSpFYdAQbesbMWUXZMV85TW1PeNzWLB4M18z580A8H2iw/pubhtml"></iframe>
+    </div>
+    <script>
+        function selectTab(tabName){
+            let iframeDiv = document.getElementById('iframeDiv');
+            if(tabName === "vendorTracking"){
+                iframeDiv.src = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTMcZ7R7hohqTrp64vEQEEaOvbD3qZXDadTSpFYdAQbesbMWUXZMV85TW1PeNzWLB4M18z580A8H2iw/pubhtml";
+            }
+            else if(tabName === "cabAttendance"){
+                let windowLocationSplittedParts = window.location.href.split('?');
+                let vendorName = windowLocationSplittedParts[windowLocationSplittedParts.length-1];
+                iframeDiv.src = "https://thd-staging.moveinsync.com/static/attendance/index.html?" + vendorName;
+            }
+        }
+    </script>
 </body>
 </html>

@@ -25,6 +25,7 @@
             else if(tabName === "cabAttendance"){
                 let windowLocationSplittedParts = window.location.href.split('?');
                 let vendorName = windowLocationSplittedParts[windowLocationSplittedParts.length-1];
+                alert(vendorName);
                 iframeDiv.src = "https://thd-staging.moveinsync.com/static/attendance/index.html?" + vendorName;
             }
         }

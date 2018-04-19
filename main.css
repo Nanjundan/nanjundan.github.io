@@ -8,3 +8,16 @@
 	width: 100%;
 	height: 100%;
 }
+.flex{
+	display: flex;
+	flex: wrap;
+}
+.navTab{
+	margin: 2px;
+	height: 25px;
+	background-color: #99CA3B;
+	border: none;
+	font-weight: bold;
+	padding: 0px 20px;
+	cursor: pointer;
+}

@@ -30,7 +30,7 @@
             else if(tabName === "cabAttendance"){
                 tab1.classList.remove('selectedTab');
                 tab2.classList.add('selectedTab');
-                alert(window.location.href + "\\" + window.location.pathname);
+                alert(window.location.href);
                 let windowLocationSplittedParts = window.location.href.split('?');
                 let vendorName = windowLocationSplittedParts[windowLocationSplittedParts.length-1];
                 iframeDiv.src = "https://thd-staging.moveinsync.com/static/attendance/index.html?" + vendorName;

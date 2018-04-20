@@ -1,13 +1,11 @@
 {
   "name": "MoveInSync",
   "short_name": "MoveInSync",
-  "gcm_sender_id": "136140353722",
   "icons": [{
     "src": "logo.png",
       "sizes": "128x128",
       "type": "image/png"
     }],
-  "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#99CA3B",
   "theme_color": "#99CA3B"
